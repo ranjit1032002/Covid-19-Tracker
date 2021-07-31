@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid 19 Tracker</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md"> <marquee behavior="" direction=""><h1 class="text-dark">Global Covid 19 Live Data</h1></marquee>  </div>
+        </div>
+        <img src="resources/covid19.png" alt="">
+        <div class="row ">
+            <div class="col-md tablecontent">
+                <table class="table table-stripped table-hover table-borderless mt-5 table-dark table-responsive-sm">
+                    <thead >
+                      <tr >
+                        <th>Toatal Cases</th>
+                        <th>Total Deaths</th>
+                        <th>Total Recovered</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr id="data" class="text-white">
+                        
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+          <div class="col-md bt">
+            <button class="btn btn-dark" onclick="refreshData() ">Referesh</button>
+          </div>
+
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+        init()  //function Name
+        function init()
+        {
+            var url="https://api.covid19api.com/summary"
+
+            var data=' '
+            $.get(url,function(data)
+            {
+                // console.log(data.Global)
+
+                data=
+                `
+                <td>${data.Global.TotalConfirmed}</td>
+                <td>${data.Global.TotalDeaths}</td>
+                <td>${data.Global.TotalRecovered}</td>
+
+                `
+                $("#data").html(data)
+            })
+        }
+
+    function refreshData()
+    {
+        clearData();
+    }
+    function clearData()
+    {
+        $("#data").empty()
+        init()   
+    }
+</script>
+
+</html>

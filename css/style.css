@@ -1,0 +1,71 @@
+body
+{
+    font-family: 'Anton', sans-serif;
+    font-size: 40px;
+    
+}
+#data
+{
+    color:indianred;
+}
+h1{
+    margin: 50px auto;
+}
+.bt
+{
+    display: flex;
+    justify-content: center;
+    
+}
+.bt button
+{
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    border-radius: 30px;
+}
+.table
+{
+    font-family: 'Oswald', sans-serif;
+    border-radius: 30px;
+    opacity: 0.9;
+}
+img
+{
+    position: absolute;
+    top:10px;
+    width:500px;
+    height:500px;
+    animation-name: sample;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(0.1, 0.1, 0.1, 0.1);
+    animation-iteration-count: infinite;
+
+    opacity: 0.8;
+}
+@keyframes sample
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    20%
+    {
+        transform: rotate(72deg);
+    }
+    40%
+    {
+        transform: rotate(144deg);
+    }
+    60%
+    {
+        transform: rotate(216deg);
+    }
+    80%
+    {
+        transform: rotate(288deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
